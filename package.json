@@ -1,0 +1,23 @@
+{
+  "name": "maison-l-opera",
+  "version": "1.0.0",
+  "description": "Maison L'Opéra - Haute Gastronomie Restaurant Website",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kakoo20/maison-l-opera.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kakoo20/maison-l-opera/issues"
+  },
+  "homepage": "https://github.com/kakoo20/maison-l-opera#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
