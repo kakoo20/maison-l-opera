@@ -239,27 +239,41 @@
         /* --- OPTIMISATION DU BOUTON D'APPEL SUR MOBILE --- */
         
      /* --- CORRECTION FINALE CENTRAGE ICÔNE --- */
-      @media (max-width: 600px) {
-    .nav-container {
-        /* On pousse tout le contenu vers la gauche pour créer de l'espace à droite */
-        padding-right: 25px !important; 
+@media (max-width: 600px) {
+    /* 1. On fait disparaître le texte totalement */
+    .btn-text {
+        display: none !important;
     }
 
+    /* 2. On configure le bouton en cercle parfait */
     .call-btn {
-        /* On s'assure que le bouton est bien poussé au maximum vers la droite */
-        margin-left: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 50% !important;
         
-        /* Centrage interne parfait */
+        /* Ce bloc force le centrage vertical et horizontal de l'icône */
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        width: 45px !important;
-        height: 45px !important;
+        
+        /* Espace de sécurité à droite du téléphone */
+        position: relative;
+        right: 10px;
     }
 
-    /* Le petit réglage "magique" si l'icône téléphone semble encore décalée d'un millimètre */
     .call-btn i {
-        margin-left: 2px !important; 
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+        animation: none !important; /* On stoppe l'animation si elle décale l'icône */
+    }
+
+    /* 3. Ajustement de la barre pour l'espace à droite */
+    .nav-container {
+        display: flex !important;
+        justify-content: space-between !important;
+        padding-right: 10px !important;
     }
 }
 
@@ -318,9 +332,10 @@
     </ul>
     
     <div class="nav-actions">
-        <a href="tel:+33123456789" class="nav-cta call-btn">
-            <i class="fa-solid fa-phone"></i> <span>APPELEZ-NOUS</span>
-        </a>
+       <a href="tel:+213770189660" class="nav-cta call-btn">
+    <i class="fa-solid fa-phone"></i>
+    <span class="btn-text">APPELEZ-NOUS</span>
+</a>
         <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fa-solid fa-bars"></i>
         </button>
