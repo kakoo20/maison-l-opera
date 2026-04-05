@@ -238,29 +238,28 @@
 
         /* --- OPTIMISATION DU BOUTON D'APPEL SUR MOBILE --- */
         
-       @media (max-width: 600px) {
+     /* --- CORRECTION FINALE CENTRAGE ICÔNE --- */
+      @media (max-width: 600px) {
+    .nav-container {
+        /* On pousse tout le contenu vers la gauche pour créer de l'espace à droite */
+        padding-right: 25px !important; 
+    }
+
     .call-btn {
-        width: 45px !important;
-        height: 45px !important;
-        padding: 0 !important;
-        border-radius: 50% !important;
-        font-size: 0 !important;
+        /* On s'assure que le bouton est bien poussé au maximum vers la droite */
+        margin-left: auto !important;
         
-        /* AJOUTS ESSENTIELS POUR LE CENTRAGE */
+        /* Centrage interne parfait */
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        width: 45px !important;
+        height: 45px !important;
     }
 
+    /* Le petit réglage "magique" si l'icône téléphone semble encore décalée d'un millimètre */
     .call-btn i {
-        font-size: 1.2rem !important;
-        margin: 0 !important;
-        /* Supprime toute marge interne qui pourrait pousser l'icône */
-        display: inline-block !important; 
-    }
-
-    .logo {
-        font-size: 1.1rem;
+        margin-left: 2px !important; 
     }
 }
 
