@@ -235,6 +235,28 @@
                 padding: 1.8rem;
             }
         }
+
+        /* --- OPTIMISATION DU BOUTON D'APPEL SUR MOBILE --- */
+        
+        @media (max-width: 600px) {
+            .call-btn {
+                width: 45px;
+                height: 45px;
+                padding: 0 !important;
+                justify-content: center;
+                border-radius: 50% !important; /* Devient un cercle parfait */
+                font-size: 0 !important; /* Cache le texte "APPELEZ-NOUS" */
+            }
+
+            .call-btn i {
+                font-size: 1.2rem !important; /* Garde l'icône à la bonne taille */
+                margin: 0 !important;
+            }
+
+            .logo {
+                font-size: 1.1rem; /* Donne un peu plus d'espace au logo */
+            }
+        }
 </style>
 </head>
 <body>
