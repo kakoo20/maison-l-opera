@@ -315,6 +315,159 @@
         transform: translateY(0);
     }
 }
+
+.location-section {
+    padding: 40px 20px;
+    background: #fdfdfd; /* Or your site's background color */
+    text-align: center;
+}
+
+.map-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
+
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: var(--gold); /* Use your gold variable */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.map-btn:hover {
+    transform: translateY(-3px);
+    background-color: #c4a052; /* A slightly darker gold */
+}
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+    .map-container iframe {
+        height: 250px; /* Shorter map on mobile */
+    }
+    
+    .map-btn {
+        width: 100%; /* Full width button on phone for easier clicking */
+    }
+}
+
+/* Container for the split screen */
+.footer-grid.split-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Left side (Text) */
+.footer-info-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between Brand, Contact, and Hours */
+    text-align: left;
+}
+
+/* Right side (Map) */
+.footer-map-column {
+    flex: 0 0 350px; /* Fixed width for the square map */
+}
+
+.map-wrapper {
+    width: 350px; /* Same as above to keep it square */
+    background: transparent;
+}
+
+.map-wrapper iframe {
+    height: 350px; /* Same as width = Square */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.map-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px;
+    background: var(--gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Mobile: Back to normal stack */
+@media (max-width: 850px) {
+    .footer-grid.split-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-info-column {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-map-column, .map-wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .map-wrapper iframe {
+        height: 300px; /* Slightly shorter on mobile */
+    }
+}
+
+/* 1. Base state of the icons */
+.footer-social a {
+    display: inline-block;
+    color: white; /* Or your default icon color */
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: all 0.3s ease; /* Smooth transition for the return */
+}
+
+/* 2. The Hover Animation */
+.footer-social a:hover {
+    color: var(--gold) !important; /* Change icon color to gold */
+    transform: translateY(-5px) scale(1.2); /* Move up and grow slightly */
+    
+    /* Create a soft gold glow effect around the icon */
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6)); 
+}
+
+/* Optional: Add a slight rotation to the TikTok or Insta icon for extra "pop" */
+.footer-social a:hover i {
+    animation: icon-wiggle 0.5s ease;
+}
+
+@keyframes icon-wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
 </style>
 </head>
 <body>
@@ -326,7 +479,7 @@
     
     <ul class="nav-links" id="navLinks">
         <li><a href="#about">Histoire</a></li>
-        <li><a href="#menu">Menu</a></li>
+        <li><a href="#menu">Carte</a></li>
         <li><a href="#reviews">Avis</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
@@ -467,52 +620,76 @@
             <div class="testi-card reveal">
                 <i class="fa-solid fa-quote-right"></i>
                 <div class="stars">★★★★★</div>
-                <p>"La fraîcheur est incroyable. Le personnel a rendu notre dîner d'anniversaire mémorable."</p>
-                <br><strong>Maria Santos</strong>
+                <p>"Excellent rapport qualité/prix !
+Service rapide et soigné. C’était excellent, je recommande le rôti de veau qui est très bon. Personnel chaleureux et belle décoration.
+De la part de toute la famille. Même mes parents ont beaucoup aimé ! 👍🏻👍🏻"</p>
+                <br><strong>Kenza S.</strong>
             </div>
             <div class="testi-card reveal">
                 <i class="fa-solid fa-quote-right"></i>
                 <div class="stars">★★★★★</div>
-                <p>"Enfin un restaurant qui prend les allergies au sérieux. Les options véganes sont divines."</p>
-                <br><strong>James Chen</strong>
+                <p>"Réel coup de coeur cet été pour ce restaurant qui est beau propre rapport qualité au top. Une équipe dynamique et professionnel. Und adresse devenu un incontournable maintenant."</p>
+                <br><strong>Saliha T.</strong>
             </div>
             <div class="testi-card reveal">
                 <i class="fa-solid fa-quote-right"></i>
                 <div class="stars">★★★★★</div>
-                <p>"Le menu de saison nous surprend à chaque fois. Un incontournable du quartier."</p>
-                <br><strong>Emma & David</strong>
+                <p>"Un vrai régal ! Les plats étaient très savoureux et généreux, le cadre agréable et chaleureux. Les serveurs sont aux petits soins, toujours attentifs, ce qui rend l’expérience encore meilleure. Une excellente adresse à Béjaïa que je recommande sans hésiter !"</p>
+                <br><strong>Samir B.</strong>
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <div class="footer-grid">
+    <div class="footer-grid split-layout">
+        <div class="footer-info-column">
             <div class="footer-brand">
                 <h3>Maison L'Opéra</h3>
                 <p>Depuis 2018, nous célébrons le lien entre la terre et l'assiette.</p>
+                <h3>Suivez-Nous Sur:</h3>
                 <div class="footer-social">
                     <a href="https://www.instagram.com/maisonlopera?igsh=MWFobnlmMWE0czJ3ZQ==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://www.facebook.com/share/17sQ5WqsY5/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                     <a href="https://www.tiktok.com/@maisonlopera?_r=1&_t=ZS-95I09uvbaBo" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
-            <div>
+            
+            <div class="contact-details">
                 <h3>Contact</h3>
                 <p>Cité Zerara nouvelle ex Dallas au troisième quartier</p>
                 <p>Bejaia, DZ</p>
-                <p>+213 770 189 660</p>
-                <p>+213 550 028 028</p>
+                <p>+213 770 189 660 | +213 550 028 028</p>
                 <p>commercial.tacosco@gmail.com</p>
             </div>
-            <div>
+
+            <div class="hours">
                 <h3>Horaires</h3>
                 <p>Sam-jeu: 10h - 22h</p>
             </div>
         </div>
-        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-            &copy; 2024 Maison L'Opéra. Tous droits réservés.
+
+        <div class="footer-map-column">
+            <div class="map-wrapper">
+                <div class="footer-map-column">
+                   <div class="map-wrapper">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.8553610501463!2d5.056065892704171!3d36.750042723751605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128d3303d2505d33%3A0x79f6b83d2da13610!2sMaison%20L&#39;Op%C3%A9ra!5e0!3m2!1sfr!2sdz!4v1775475059893!5m2!1sfr!2sdz"
+                       width="100%" 
+                       height="100%" 
+                       style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                      </iframe>
+                   </div>
+               </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Maison+L+Opera" target="_blank" class="map-btn">
+                    <i class="fa-solid fa-location-arrow"></i> ITINÉRAIRE
+                </a>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem;">
+        © 2024 Maison L'Opéra. Tous droits réservés.
+    </div>
+</footer>
 
     <script>
         // Effet scroll sur la Navbar
